@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('headcss', {}); %>
+    <title>食肉狼登录</title>
+    <style>
+        .icon-lang{
+            font-size: 100px;
+            color: white;
+        }
+        .title-word{
+            font-size: 20px;
+            color: white;
+        }
+
+        .layui-row{
+            width: 100%;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .login{
+            font-size: 20px;
+            font-family: '楷体';
+        }
+        .layui-form-label{
+            font-size: 20px;
+            font-family: '楷体';
+        }
+        .layui-form-item{
+            margin-left: -100px;
+        }
+        .text{
+            width: 500px;
+            margin: 50px auto;
+        }
+        .layui-input{
+            height: 50px;
+            margin: 20px;
+        }
+        .layui-btn{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            font-family: '楷体';
+            background-color: steelblue;
+        }
+        .signIn{
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body class="layui-bg-black">
+    <div class="layui-container">
+        <span class="iconfont icon-lang"></span>
+        <span class="title-word">Carnivorous Wolf</span>
+        <!-- 内容 -->
+        <div class="layui-row">
+                <!-- 登录 -->
+                <div class="login">
+                    <h1>请登录</h1>
+                </div>
+                <!-- 登录 end -->
+                <!-- 表单 -->
+                <div class="text">
+                    <form class="layui-form" action="#">
+                        <!-- 用户名 -->
+                        <div class="layui-form-item">
+                          <label class="layui-form-label">用户名</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" required placeholder="请输入用户名/账号" class="layui-input">
+                            </div>
+                        </div>
+                        <!-- 用户名 end -->
+                        <!-- 密码 -->
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">密码</label>
+                              <div class="layui-input-block">
+                                  <input type="password" name="password" required placeholder="请输入密码" class="layui-input">
+                              </div>
+                          </div>
+                        <!-- 密码 end -->
+                        <button type="button" class="layui-btn">登录</button>
+                        <a href="/signIn" class="layui-btn signIn">注册</a>
+                    </form>
+                </div>
+                <!-- 表单 end -->
+          </div>
+          <!-- 内容 end-->
+    </div>
+</body>
+</html>

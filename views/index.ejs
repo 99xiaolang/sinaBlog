@@ -1,11 +1,96 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+
+<head>
+  <%- include('headcss', {}); %>
+    <title>食肉狼首页</title>
+    <style>
+      .icon-lang {
+        font-size: 100px;
+        color: white;
+      }
+
+      .title-word {
+        font-size: 20px;
+        color: white;
+      }
+    </style>
+</head>
+
+<body class="layui-bg-black">
+  <div class="layui-container">
+    <span class="iconfont icon-lang"></span>
+    <span class="title-word">Carnivorous Wolf</span>
+    <!-- 导航 -->
+    <ul class="layui-nav">
+      <li class="layui-nav-item layui-this"><a href="/">首页</a></li>
+      <li class="layui-nav-item"><a href="/write">创作中心</a></li>
+      <li class="layui-nav-item"><a href="">论坛</a></li>
+      <li class="layui-nav-item"><a href="">问答</a></li>
+      <li class="layui-nav-item"><a href="">直播</a></li>
+      <li class="layui-nav-item"><a href="">电子书</a></li>
+      <li class="layui-nav-item">
+        <div class="layui-input-block">
+          <input type="text" name="title" required placeholder="请输入搜索关键字" class="layui-input">
+        </div>
+      </li>
+      <li class="layui-nav-item">
+        <a href="">
+          <i class="layui-icon layui-icon-search" style="font-size: 40px; color: rgba(198, 250, 8, 0.966);line-height: 80px;"></i>
+        </a>
+      </li>
+      <li class="layui-nav-item"><a href="/login">个人中心</a></li>
+      <li class="layui-nav-item"><a href="">收藏</a></li>
+      <li class="layui-nav-item"><a href="">消息</a></li>
+    </ul>
+    <!-- 导航 end-->
+    <!-- 内容列表 -->
+    <table class="layui-table" lay-skin="line">
+      <colgroup>
+        <col width="150">
+        <col width="200">
+        <col width="650">
+        <col>
+      </colgroup>
+      <thead>
+        <tr>
+          <th>昵称</th>
+          <th>发布时间</th>
+          <th>签名</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          
+            <td>
+              <a href="/blokInfo">贤心</a>
+            </td>
+            <td>
+              <a href="/blokInfo">2016-11-29</a>
+            </td>
+            <td>
+              <a href="/blokInfo">人生就像是一场修行</a>
+            </td>
+          <td>
+            <a href="#">修改</a>
+            <a href="#">删除</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>许闲心</td>
+          <td>2016-11-28</td>
+          <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+          <td>
+            <a href="#">修改</a>
+            <a href="#">删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- 内容列表 end -->
+  </div>
+</body>
+
 </html>
