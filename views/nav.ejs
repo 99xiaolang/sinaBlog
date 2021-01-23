@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航</title>
+    <style>
+      .layui-icon-search{
+        font-size: 40px; 
+        color: gold;
+        line-height: 80px;
+      }
+      .sousuo{
+        padding: 0px;
+        margin-left: -10px;
+      }
+    </style>
+</head>
+<body>
+  <div class="layui-col-xs12">
+    <ul class="layui-nav">
+        <li class="layui-nav-item layui-this"><a href="/">首页</a></li>
+        <li class="layui-nav-item"><a href="/write">创作中心</a></li>
+        <li class="layui-nav-item"><a href="">论坛</a></li>
+        <li class="layui-nav-item"><a href="">问答</a></li>
+        <li class="layui-nav-item"><a href="">直播</a></li>
+        <li class="layui-nav-item"><a href="">电子书</a></li>
+        <li class="layui-nav-item sousuo">
+          <div class="layui-input-block">
+            <input type="text" name="title" required placeholder="请输入搜索关键字" class="layui-input">
+          </div>
+        </li>
+        <li class="layui-nav-item sousuo">
+          <a href="">
+            <i class="layui-icon layui-icon-search"></i>
+          </a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="/login">
+            <i class="layui-icon layui-icon-username"></i>
+              个人中心
+          </a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="">
+            <i class="layui-icon layui-icon-rate"></i>
+              收藏
+          </a>
+        </li>
+        <li class="layui-nav-item">
+          <a href="">
+            <i class="layui-icon layui-icon-reply-fill"></i>
+              消息
+          </a>
+        </li>
+      </ul>
+    </div>
+</body>
+</html>

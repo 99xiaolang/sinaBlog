@@ -4,21 +4,71 @@
     <%- include('headcss', {}); %>
     <title>食肉狼博客详情</title>
     <style>
-        .icon-lang{
-            font-size: 100px;
-            color: white;
+        .layui-card{
+            border-radius: 15px;
+            background-color:turquoise;
+            margin: 30px 0px;
         }
-        .title-word{
-            font-size: 20px;
-            color: white;
+        .layui-card-header,.layui-card-body{
+            background-color:turquoise;
+            border-radius: 15px;
+            font-family: '楷体';
+        }
+        .layui-card-header{
+            color: deeppink;
+        }
+        .layui-card-body{
+            color: black;
+        }
+        .layui-card-body span{
+            margin: 0px 15px;
+            font-size: 18px;
+        }
+        .word{
+            padding: 15px;
+        }
+        .chatu{
+            text-align: center;
+        }
+        .chatu img{
+            width: 200px;
+            height: 200px;
+            margin: 10px 20px;
         }
     </style>
 </head>
 <body class="layui-bg-black">
     <div class="layui-container">
-        <span class="iconfont icon-lang"></span>
-        <span class="title-word">Carnivorous Wolf</span>
-        详情
+        <%- include('logo', {}); %>
+        <!-- 面板内容 -->
+        <div class="layui-card">
+            <div class="layui-card-header">
+                <h1>贤心最新更新</h1>
+            </div>
+            <div class="layui-card-body">
+                <span>作者:</span>
+                <span>发布时间:2016-11-29 11:42:59</span>
+                <div class="word">
+                    <p>
+                        人生浮华若梦，每分每秒都无比珍贵！你不知道你的下一秒会发生什么
+                        ，亦无法改变已经发生的一切。在浩瀚的时间长河之中，人类是如此的
+                        渺小且脆弱。一次地震、一次洪水、一次火灾、一次台风······
+                    </p>
+                    <p>
+                        每一次灾难的来临都会轻而易举的夺取我们的生命，对于那些救助我们
+                        于苦难之中的英雄来说，他们是那样的无所畏惧，奋不顾身。明明与我
+                        们毫无关系，但看到他们的时候就好像看到家人一样
+                    </p>
+                    <div class="chatu">
+                        <img src="images/nvdi.jpg">
+                        <img src="images/namei.jpg">
+                        <img src="images/ersao.jpg">
+                        <img src="images/zero.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 面板内容 end -->
     </div>
 </body>
 </html>
