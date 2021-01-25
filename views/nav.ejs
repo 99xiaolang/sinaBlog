@@ -36,10 +36,17 @@
           </a>
         </li>
         <li class="layui-nav-item">
-          <a href="/login">
-            <i class="layui-icon layui-icon-username"></i>
-              个人中心
-          </a>
+          <% if(userName) { %>
+            <a href="/login">
+              <i class="layui-icon layui-icon-username"></i>
+                <%= userName %>
+            </a>
+          <% } else { %>
+            <a href="/login">
+              <i class="layui-icon layui-icon-username"></i>
+                登录/注册
+            </a>
+          <% } %>
         </li>
         <li class="layui-nav-item">
           <a href="">
