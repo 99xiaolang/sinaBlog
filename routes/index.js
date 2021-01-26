@@ -3,7 +3,7 @@ var router = express.Router();
 
 // 首页
 router.get('/', function(req, res) {
-  let userName = req.session.userName || ' '
+  let userName = req.session.userName || ''
   res.render('index', {userName});
 });
 // 登录
@@ -16,7 +16,7 @@ router.get('/signIn', function(req, res) {
 });
 //创作中心
 router.get('/write', function(req, res) {
-  let userName = req.session.userName || ' '
+  let userName = req.session.userName || ''
   res.render('write', {userName});
 });
 //详情页

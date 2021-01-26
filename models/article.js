@@ -5,6 +5,7 @@ let Schema = mongoose.Schema
 let articleSchema = new Schema({
     title:String,
     date:String,
+    author:String,
     content:String,
     img:String,
 })

@@ -9,7 +9,7 @@
                 width: 950px;
             }
 
-            .date{
+            .date {
                 margin-top: 30px;
             }
 
@@ -20,8 +20,13 @@
             .layui-textarea {
                 overflow: scroll;
             }
-            .img{
-                margin: 120px 0 0 50px;
+
+            .img {
+                margin: 50px 0 0 50px;
+            }
+
+            body.layui-bg-black{
+                color: #222 !important;
             }
         </style>
 </head>
@@ -29,37 +34,56 @@
 <body class="layui-bg-black">
     <div class="layui-container">
         <%- include('logo', {}); %>
-            <!-- 导航 -->
-            <%- include('nav', {userName}); %>
-                <!-- 导航 end-->
-                <!-- 创作中心内容 -->
-                <form action="/article/add" method="POST">
-                    <div class="layui-row">
-                        <div class="layui-col-md11">
-                            <input type="text" name="title" placeholder="请输入标题" class="layui-input title">
-                        </div>
-                        <div class="layui-col-md1">
-                            <input type="submit" value="确认并提交文章" class="layui-btn">
-                        </div>
-                    </div>
-                    <div class="layui-row">
-                        <div class="layui-col-md2">
-                            <input type="date" name="date" class="layui-input date">
-                        </div>
-                    </div>
-                    <!-- 文本框 -->
-                    <div class="layui-row txtarea">
-                        <div class="layui-col-md10">
-                            <textarea name="content" class="layui-textarea" cols="130" rows="15" placeholder="请输入内容"></textarea>
-                        </div>
-                        <div class="layui-col-md2">
-                            <input type="file" name="img" class="img">
-                        </div>
-                    </div>
-                </form>
-                <!-- 文本框 end-->
-                <!-- 创作中心内容 end -->
+        <!-- 导航 -->
+        <%- include('nav', {userName}); %>
+        <!-- 导航 end-->
+        <!-- 创作中心内容 -->
+        <form action="/article/add" method="POST">
+            <div class="layui-row">
+                <div class="layui-col-md11">
+                    <input type="text" name="title" placeholder="请输入标题" class="layui-input title">
+                </div>
+                <div class="layui-col-md1">
+                    <input type="submit" value="确认并提交文章" class="layui-btn">
+                </div>
+            </div>
+            <div class="layui-row">
+                <div class="layui-col-md2">
+                    <input type="date" name="date" class="layui-input date">
+                </div>
+            </div>
+
+            <div class="layui-row">
+                <div class="layui-col-md2">
+                    <input type="text" name="author" placeholder="请输入昵称、作者名" class="layui-input date">
+                </div>
+            </div>
+            <!-- 文本框 -->
+            <div class="layui-row txtarea">
+                <div class="layui-col-md10">
+                    <textarea name="content" id="editor" class="layui-textarea" placeholder="请输入内容"></textarea>
+                </div>
+                <div class="layui-col-md2">
+                    <input type="file" name="img" class="img">
+                </div>
+            </div>
+        </form>
+        <!-- 文本框 end-->
+        <!-- 创作中心内容 end -->
     </div>
+    <script src="libs/ckeditor5-build-classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'),{
+                // 配置ckfinder插件
+                ckfinder:{
+                    uploadUrl:'/article/upload'
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 
 </html>

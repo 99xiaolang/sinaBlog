@@ -23,44 +23,33 @@
         <colgroup>
           <col width="150">
           <col width="200">
-          <col width="650">
+          <col width="100">
+          <col width="550">
           <col>
         </colgroup>
         <thead>
           <tr>
-            <th>昵称</th>
+            <th>标题</th>
             <th>发布时间</th>
-            <th>签名</th>
+            <th>作者</th>
+            <th>内容</th>
             <th>操作</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for = 'word in words'>
               <td>
-                <a href="/blokInfo">贤心</a>
+                <a href="/blokInfo">渲染首页</a>
               </td>
               <td>
-                <a href="/blokInfo">2016-11-29</a>
+                <a href="/blokInfo">2020-01-26</a>
               </td>
               <td>
-                <a href="/blokInfo">人生就像是一场修行</a>
+                <a href="/blokInfo">郎澳博</a>
               </td>
-            <td>
-              <a href="#">
-                <i class="layui-icon layui-icon-edit"></i> 
-                修改
-              </a>
-              <a href="#">
-                <i class="layui-icon layui-icon-delete"></i> 
-                删除
-              </a>
-            </td>
-          </tr>
-
-          <tr>
-            <td>许闲心</td>
-            <td>2016-11-28</td>
-            <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+              <td>
+                <a href="/blokInfo">脑子好乱!从哪开始啊?</a>
+              </td>
             <td>
               <a href="#">
                 <i class="layui-icon layui-icon-edit"></i> 
@@ -76,6 +65,7 @@
       </table>
     </div>
     <!-- 内容列表 end -->
+    <!-- 分页 -->
     <div class="layui-col-xs6">
       <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
         <i class="layui-icon layui-icon-left"></i>
@@ -96,6 +86,7 @@
         <i class="layui-icon layui-icon-right"></i>
       </button>
     </div>
+    <!-- 分页 end -->
   </div>
 </body>
 
