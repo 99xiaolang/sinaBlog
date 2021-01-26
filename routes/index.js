@@ -1,10 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
+//文章模板导入
+let Article = require('../models/article')
+
 // 首页
-router.get('/', function(req, res) {
+router.get('/', async function(req, res) {
+  let data = await Article.find()
+  // console.log(data);
   let userName = req.session.userName || ''
-  res.render('index', {userName});
+  res.render('index', {userName,data});
 });
 // 登录
 router.get('/login', function(req, res) {

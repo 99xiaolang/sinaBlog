@@ -9,7 +9,7 @@
                 width: 950px;
             }
 
-            .date {
+            .author {
                 margin-top: 30px;
             }
 
@@ -33,7 +33,7 @@
 
 <body class="layui-bg-black">
     <div class="layui-container">
-        <%- include('logo', {}); %>
+        <a href="/"><%- include('logo', {}); %></a>
         <!-- 导航 -->
         <%- include('nav', {userName}); %>
         <!-- 导航 end-->
@@ -47,15 +47,10 @@
                     <input type="submit" value="确认并提交文章" class="layui-btn">
                 </div>
             </div>
-            <div class="layui-row">
-                <div class="layui-col-md2">
-                    <input type="date" name="date" class="layui-input date">
-                </div>
-            </div>
 
             <div class="layui-row">
                 <div class="layui-col-md2">
-                    <input type="text" name="author" placeholder="请输入昵称、作者名" class="layui-input date">
+                    <input type="text" name="author" placeholder="请输入昵称、作者名" class="layui-input author">
                 </div>
             </div>
             <!-- 文本框 -->

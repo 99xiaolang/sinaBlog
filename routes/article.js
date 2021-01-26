@@ -15,7 +15,7 @@ router.post('/add', (req, res, next) => {
   //向数据库添加文章信息
   let articleInfo = {
     title: req.body.title,
-    date: req.body.date,
+    date: Date.now(),
     author: req.body.author,
     content: req.body.content,
     img: req.body.img,
