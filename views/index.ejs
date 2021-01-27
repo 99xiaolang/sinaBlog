@@ -8,6 +8,32 @@
       table tr{
         height: 50px;
       }
+      .content a{
+        color: white;
+      }
+      .content{
+        line-height: 50px;
+        display: inline-block;
+        border: 1px solid white;
+        border-radius: 15px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+      .info{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+      .word{
+        float: left;
+        width: 100%;
+        line-height: 25px!important;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
+      }
     </style>
 </head>
 
@@ -18,41 +44,21 @@
     <%- include('nav', {userName}); %>
     <!-- 导航 end-->
     <!-- 内容列表 -->
-    <div class="layui-col-xs12">
-      <table class="layui-table" lay-skin="line">
-        <colgroup>
-          <col width="150">
-          <col width="200">
-          <col width="100">
-          <col width="500">
-          <col>
-        </colgroup>
-        <thead>
-          <tr>
-            <th>标题</th>
-            <th>发布时间</th>
-            <th>作者</th>
-            <th>内容</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% data.map(item => { %>
-          <tr>
-              <td>
-                <a href="/blokInfo"><%= item.title %></a>
-              </td>
-              <td>
-                <a href="/blokInfo"><%= item.date %></a>
-              </td>
-              <td>
-                <a href="/blokInfo"><%= item.author %></a>
-              </td>
-              <td>
-                <a href="/blokInfo"><%= item.content %></a>
-              </td>
-            <td>
-              <a href="#">
+    <% data.blogList.map(item => { %>
+      <div class="content">
+        <ul>
+          <li class="info">
+            <a href="/blokInfo?_id=<%= item._id %>">
+              <div><h1><%= item.title %></h1></div>
+            </a>
+            <a href="/blokInfo?_id=<%= item._id %>">
+              <div>发布时间:<%= item.time %></div>
+            </a>
+            <a href="/blokInfo?_id=<%= item._id %>">
+              <div>作者:<%= item.author %></div>
+            </a>
+            <div>
+              <a href="/write?_id=<%= item._id %>&page=<%= data.currPage%>">
                 <i class="layui-icon layui-icon-edit"></i> 
                 修改
               </a>
@@ -60,30 +66,29 @@
                 <i class="layui-icon layui-icon-delete"></i> 
                 删除
               </a>
-            </td>
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
-    </div>
+            </div>
+          </li>
+          <li class="word">
+            <a href="/blokInfo?_id=<%= item._id %>"><%- item.content %></a>
+          </li>
+        </ul>
+      </div>
+    <% }) %>
     <!-- 内容列表 end -->
     <!-- 分页 -->
     <div class="layui-col-xs6">
       <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
         <i class="layui-icon layui-icon-left"></i>
       </button>
-      <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
-        <i class="layui-icon">1</i>
-      </button>
-      <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
-        <i class="layui-icon">2</i>
-      </button>
-      <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
-        <i class="layui-icon">3</i>
-      </button>
-      <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
-        <i class="layui-icon">4</i>
-      </button>
+      <% for(let i = 1; i <= data.PagesTotle; i++){ %>
+        <a href="/?page=<%=i%>" class="<%- data.currPage==i?'active':'' %>">
+          <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
+            <i class="layui-icon">
+              <%= i %>
+            </i>
+          </button>
+        </a>
+      <% } %>
       <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
         <i class="layui-icon layui-icon-right"></i>
       </button>

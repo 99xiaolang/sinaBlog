@@ -4,7 +4,7 @@ let Schema = mongoose.Schema
 
 let articleSchema = new Schema({
     title:String,
-    date:Date,
+    date:Number,
     author:String,
     content:String,
     img:String,

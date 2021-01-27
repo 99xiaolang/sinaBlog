@@ -43,23 +43,13 @@
         <!-- 面板内容 -->
         <div class="layui-card">
             <div class="layui-card-header">
-                <h1>贤心最新更新</h1>
+                <h1><%= data.title %></h1>
             </div>
             <div class="layui-card-body">
-                <span>发布时间:2016-11-29 11:42:59</span>
-                <span>作者:</span>
+                <span>发布时间:<%= data.time %></span>
+                <span>作者:<%= data.author %></span>
                 <div class="word">
-                    <p>
-                        人生浮华若梦，每分每秒都无比珍贵！你不知道你的下一秒会发生什么
-                        ，亦无法改变已经发生的一切。在浩瀚的时间长河之中，人类是如此的
-                        渺小且脆弱。一次地震、一次洪水、一次火灾、一次台风······
-                    </p>
-                    <div class="chatu">
-                        <img src="images/nvdi.jpg">
-                        <img src="images/namei.jpg">
-                        <img src="images/ersao.jpg">
-                        <img src="images/zero.jpg">
-                    </div>
+                    <%- data.content %>
                 </div>
             </div>
         </div>
