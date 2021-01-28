@@ -55,10 +55,17 @@ router.get('/write',async function(req, res) {
     let page = req.query.page
     console.log(page);
     let data = await Article.findOne({_id:blokId})
+    data.page = page
     res.render('write', {userName,data});
   }else{
     //如果为false
-    res.render('write', {userName});
+    let data = {
+      title:'',
+      author:'',
+      content:'',
+      _id:''
+    }
+    res.render('write', {userName,data});
   }
 });
 //详情页

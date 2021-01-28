@@ -45,7 +45,7 @@
     <!-- 导航 end-->
     <!-- 内容列表 -->
     <% data.blogList.map(item => { %>
-      <div class="content">
+      <div class="content layui-col-xs12">
         <ul>
           <li class="info">
             <a href="/blokInfo?_id=<%= item._id %>">
@@ -62,7 +62,7 @@
                 <i class="layui-icon layui-icon-edit"></i> 
                 修改
               </a>
-              <a href="#">
+              <a href="/article/delete?_id=<%= item._id %>&page=<%= data.currPage%>">
                 <i class="layui-icon layui-icon-delete"></i> 
                 删除
               </a>
@@ -82,7 +82,7 @@
       </button>
       <% for(let i = 1; i <= data.PagesTotle; i++){ %>
         <a href="/?page=<%=i%>" class="<%- data.currPage==i?'active':'' %>">
-          <button type="button" class="layui-btn layui-btn-sm layui-btn-primary">
+          <button type="button" class="layui-btn layui-btn-sm layui-btn-primary active">
             <i class="layui-icon">
               <%= i %>
             </i>

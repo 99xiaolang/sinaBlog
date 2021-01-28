@@ -45,11 +45,20 @@
         <form action="/article/add" method="POST">
             <div class="layui-row">
                 <div class="layui-col-md11">
+                    <input type="hidden" name="dId" value="<%= data._id%>">
+                    <input type="hidden" name="page" value="<%= data.page%>">
                     <input type="text" name="title" placeholder="请输入标题" value="<%= data.title %>" class="layui-input title">
                 </div>
-                <div class="layui-col-md1">
-                    <input type="submit" value="确认并提交文章" class="layui-btn">
-                </div>
+                <% if(!data._id){ %>
+                    <div class="layui-col-md1">
+                        <input type="submit" value="确认并提交文章" class="layui-btn">
+                    </div>
+                <% }else{ %>
+                    <div class="layui-col-md1">
+                        <input type="submit" value="确认并保存修改" class="layui-btn">
+                    </div>
+                <% }%>
+                
             </div>
 
             <div class="layui-row">

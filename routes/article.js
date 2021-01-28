@@ -12,24 +12,40 @@ let fs = require('fs')
 //添加博客接口
 // 创作中心数据插入
 router.post('/add', (req, res, next) => {
-  //向数据库添加文章信息
-  let articleInfo = {
-    title: req.body.title,
-    date: Date.now(),
-    author: req.body.author,
-    content: req.body.content,
-    img: req.body.img,
-  }
-
-  //文章数据 放入模型
-  let articleI = new Article(articleInfo)
-  //保存
-  articleI.save((err, result) => {
-    if (!err) {
-      res.send(result)
+  let nId = req.body.dId || ''
+  if (!nId) {
+    //向数据库添加文章信息
+    let articleInfo = {
+      title: req.body.title,
+      date: Date.now(),
+      author: req.body.author,
+      content: req.body.content,
+      img: req.body.img,
     }
-  })
-  console.log(req.body);
+
+    //文章数据 放入模型
+    let articleI = new Article(articleInfo)
+    //保存
+    articleI.save((err, result) => {
+      if (!err) {
+        res.redirect('/')
+      }
+    })
+  } else {
+    let page = req.body.page
+    let articleData = {
+      title:req.body.title,
+      author:req.body.author,
+      date:Date.now(),
+      content:req.body.content,
+    }
+
+    Article.findByIdAndUpdate(nId,articleData,{new:true},(err,result) => {
+      if(!err){
+        res.redirect(`/?page=${page}`)
+      }
+    })
+  }
 })
 
 // 设置新的图片路由
@@ -59,6 +75,20 @@ router.post('/upload', (req, res, next) => {
     wStream.on('close', () => {
       res.send({ uploaded: 1, url: filePath })//将服务器端图片地址拿给文本框,使得文章能够正确加载插图
     })
+  })
+})
+
+//文章删除的接口
+router.get('/delete',(req,res,next) => {
+  //从接口接收传输的id和页码page
+  let id = req.query._id
+  let page = req.query.page
+  //根据id从数据库删除
+  Article.deleteOne({_id:id},err => {
+    if(!err){
+      //返回删除前的页面
+      res.redirect(`/?page=${page}`)
+    }
   })
 })
 
